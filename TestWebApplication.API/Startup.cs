@@ -11,6 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+using TestWebApplication.Core.Interface;
+using TestWebApplication.Core.Services;
 using TestWebApplication.Data.Context;
 
 namespace TestWebApplication.API
@@ -27,10 +30,16 @@ namespace TestWebApplication.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IUserService, UserService>( );
+
             services.AddControllers( );
             services.AddDbContext<AppDbContext>( options =>
             {
                 options.UseSqlServer( Configuration.GetConnectionString( "MyDbCon" ) );
+            } );
+            services.AddSwaggerGen( s =>
+            {
+                s.SwaggerDoc( "v1", new OpenApiInfo { Title = "Test API", Version = "v1" } );
             } );
         }
 
@@ -41,6 +50,13 @@ namespace TestWebApplication.API
             {
                 app.UseDeveloperExceptionPage( );
             }
+
+            app.UseSwagger( );
+
+            app.UseSwaggerUI( c =>
+            {
+                c.SwaggerEndpoint( "/swagger/v1/swagger.json", "Test API V1" );
+            } );
 
             app.UseHttpsRedirection( );
 
