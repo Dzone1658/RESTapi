@@ -49,6 +49,7 @@ namespace TestWebApplication.API
             app.UseSwaggerUI( c =>
             {
                 c.SwaggerEndpoint( "/swagger/v1/swagger.json", "Test API V1" );
+                c.RoutePrefix = "swagger";
             } );
 
             app.UseHttpsRedirection( );
@@ -59,7 +60,9 @@ namespace TestWebApplication.API
 
             app.UseEndpoints( endpoints =>
              {
-                 endpoints.MapControllers( );
+                 endpoints.MapControllerRoute(
+                     name: "user",
+                     pattern: "{controller=Swagger}/{action=Index}/{id?}" );
              } );
         }
     }
