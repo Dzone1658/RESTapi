@@ -35,18 +35,10 @@ namespace TestWebApplication.Core.Services
             {
                 userList.Add( NewUser( item ) );
             }
-            //var result = ( from U in _context.Users.ToList()
-            //               select new User
-            //               {
-            //                   FullName = U.FullName.Reverse().
-            //                   //Email = _context.Users.Reverse( ).FirstOrDefault( ).Email,
-            //                   //Notes = _context.Users.Reverse( ).FirstOrDefault( ).Notes
-            //               } ).ToList( );
-            //return Enumerable.Reverse( result ).ToList( );
             return userList;
         }
 
-        private string ReverseCharacters(string str)
+        private static string ReverseCharacters(string str)
         {
             char[ ] array = str.ToCharArray( );
             Array.Reverse( array );
