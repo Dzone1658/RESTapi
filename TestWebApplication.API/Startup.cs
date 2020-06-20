@@ -1,3 +1,6 @@
+using System.Threading.Tasks;
+using System.Web.Http;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -44,6 +47,11 @@ namespace TestWebApplication.API
                 app.UseDeveloperExceptionPage( );
             }
 
+            //app.Run( context => {
+            //    context.Response.Redirect( "swagger/index.html" );
+            //    return Task.CompletedTask;
+            //} );
+
             app.UseSwagger( );
 
             app.UseSwaggerUI( c =>
@@ -60,9 +68,9 @@ namespace TestWebApplication.API
 
             app.UseEndpoints( endpoints =>
              {
-                 endpoints.MapControllerRoute(
-                     name: "user",
-                     pattern: "{controller=Swagger}/{action=Index}/{id?}" );
+             endpoints.MapControllers( );
+                     //name: "user",
+                     //pattern: "{controller=Swagger}/{action=Index}/{id?}" );
              } );
         }
     }
