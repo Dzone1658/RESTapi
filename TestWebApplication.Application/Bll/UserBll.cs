@@ -31,6 +31,7 @@ namespace TestWebApplication.Application.Bll
         {
             User model = new User( );
             model.UserId = user.UserId;
+            model.MobileNumber = user.MobileNumber;
             model.FullName = ReverseString.ReverseCharacters( user.FullName );
             model.Email = ReverseString.ReverseCharacters( user.Email );
             model.Notes = ReverseString.ReverseCharacters( user.Notes );

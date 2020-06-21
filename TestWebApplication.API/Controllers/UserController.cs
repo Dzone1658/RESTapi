@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using TestWebApplication.Domain.Interface;
-using TestWebApplication.Data.Models;
-using TestWebApplication.Application.Bll;
 using TestWebApplication.Application.Interface;
+using TestWebApplication.Data.Models;
 
 namespace TestWebApplication.API.Controllers
 {

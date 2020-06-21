@@ -1,6 +1,3 @@
-using System.Threading.Tasks;
-using System.Web.Http;
-
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -8,12 +5,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using TestWebApplication.Application.Bll;
+using TestWebApplication.Application.Interface;
+using TestWebApplication.Data.Context;
 using TestWebApplication.Domain.Interface;
 using TestWebApplication.Domain.Services;
-using TestWebApplication.Data.Context;
-using TestWebApplication.Application.Bll;
-using TestWebApplication.API.Controllers;
-using TestWebApplication.Application.Interface;
 
 namespace TestWebApplication.API
 {
