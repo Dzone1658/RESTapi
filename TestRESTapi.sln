@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebApplication.API", "TestWebApplication.API\TestWebApplication.API.csproj", "{6F4B1414-00F5-41C8-B871-2276F0548B92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebApplication.API", "TestWebApplication.API\TestWebApplication.API.csproj", "{6F4B1414-00F5-41C8-B871-2276F0548B92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebApplication.Core", "TestWebApplication.Core\TestWebApplication.Core.csproj", "{5A9E7BB0-FF9D-4214-885C-F4DC996A5106}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebApplication.Domain", "TestWebApplication.Core\TestWebApplication.Domain.csproj", "{5A9E7BB0-FF9D-4214-885C-F4DC996A5106}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebApplication.Data", "TestWebApplication.Data\TestWebApplication.Data.csproj", "{72475510-03A6-4AA0-9A81-4C463E55B9C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebApplication.Data", "TestWebApplication.Data\TestWebApplication.Data.csproj", "{72475510-03A6-4AA0-9A81-4C463E55B9C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebApplication.Application", "TestWebApplication.Application\TestWebApplication.Application.csproj", "{F0785237-5A0E-491C-ABD3-899D7083ABDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{72475510-03A6-4AA0-9A81-4C463E55B9C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72475510-03A6-4AA0-9A81-4C463E55B9C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72475510-03A6-4AA0-9A81-4C463E55B9C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0785237-5A0E-491C-ABD3-899D7083ABDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0785237-5A0E-491C-ABD3-899D7083ABDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0785237-5A0E-491C-ABD3-899D7083ABDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0785237-5A0E-491C-ABD3-899D7083ABDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

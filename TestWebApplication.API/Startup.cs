@@ -8,9 +8,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using TestWebApplication.Core.Interface;
-using TestWebApplication.Core.Services;
+using TestWebApplication.Domain.Interface;
+using TestWebApplication.Domain.Services;
 using TestWebApplication.Data.Context;
+using TestWebApplication.Application.Bll;
+using TestWebApplication.API.Controllers;
+using TestWebApplication.Application.Interface;
 
 namespace TestWebApplication.API
 {
@@ -27,6 +30,7 @@ namespace TestWebApplication.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>( );
+            services.AddScoped<IUserBll, UserBll>( );
 
             services.AddControllers( );
             services.AddDbContext<AppDbContext>( options =>
@@ -47,11 +51,6 @@ namespace TestWebApplication.API
                 app.UseDeveloperExceptionPage( );
             }
 
-            //app.Run( context => {
-            //    context.Response.Redirect( "swagger/index.html" );
-            //    return Task.CompletedTask;
-            //} );
-
             app.UseSwagger( );
 
             app.UseSwaggerUI( c =>
@@ -68,9 +67,7 @@ namespace TestWebApplication.API
 
             app.UseEndpoints( endpoints =>
              {
-             endpoints.MapControllers( );
-                     //name: "user",
-                     //pattern: "{controller=Swagger}/{action=Index}/{id?}" );
+                 endpoints.MapControllers( );
              } );
         }
     }

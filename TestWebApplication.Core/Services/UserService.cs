@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using TestWebApplication.Core.Interface;
 using TestWebApplication.Data.Context;
 using TestWebApplication.Data.Models;
+using TestWebApplication.Domain.Interface;
 
-namespace TestWebApplication.Core.Services
+namespace TestWebApplication.Domain.Services
 {
     public class UserService : IUserService
     {
@@ -29,31 +28,9 @@ namespace TestWebApplication.Core.Services
 
         public List<User> GetUsers()
         {
-            var result = _context.Users.ToList( );
-            List<User> userList = new List<User>( );
-            foreach ( User item in result )
-            {
-                userList.Add( NewUser( item ) );
-            }
+            var userList = _context.Users.ToList( );
             return userList;
         }
 
-        private static string ReverseCharacters(string str)
-        {
-            char[ ] array = str.ToCharArray( );
-            Array.Reverse( array );
-            return new string( array );
-        }
-
-        private User NewUser(User user)
-        {
-            User model = new User( );
-            model.UserId = user.UserId;
-            model.FullName = ReverseCharacters( user.FullName );
-            model.Email = ReverseCharacters( user.Email );
-            model.Notes = ReverseCharacters( user.Notes );
-
-            return model;
-        }
     }
 }

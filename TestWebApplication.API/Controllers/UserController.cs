@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using TestWebApplication.Core.Interface;
+using TestWebApplication.Domain.Interface;
 using TestWebApplication.Data.Models;
+using TestWebApplication.Application.Bll;
+using TestWebApplication.Application.Interface;
 
 namespace TestWebApplication.API.Controllers
 {
@@ -11,11 +13,11 @@ namespace TestWebApplication.API.Controllers
     public class UserController : ControllerBase
     {
 
-        private readonly IUserService _userService;
+        private readonly IUserBll _userBll;
 
-        public UserController(IUserService userService)
+        public UserController(IUserBll userBll)
         {
-            _userService = userService;
+            _userBll = userBll;
         }
 
         // GET: api/User
@@ -24,8 +26,8 @@ namespace TestWebApplication.API.Controllers
         {
             if ( ModelState.IsValid )
             {
-                var result = _userService.GetUsers( );
-                return Ok( result );
+                var users = _userBll.GetUsers( );
+                return Ok( users );
             }
             return NotFound( );
         }
@@ -38,7 +40,7 @@ namespace TestWebApplication.API.Controllers
             {
                 if ( user.FullName != null && user.Email != null )
                 {
-                    var result = _userService.AddUserDetails( user );
+                    var result = _userBll.AddUser( user );
                     return Ok( result );
                 }
                 throw new Exception( "Invalid input" );

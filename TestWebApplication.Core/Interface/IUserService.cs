@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using TestWebApplication.Data.Models;
 
-namespace TestWebApplication.Core.Interface
+namespace TestWebApplication.Domain.Interface
 {
     public interface IUserService
     {
