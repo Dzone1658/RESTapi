@@ -9,7 +9,7 @@ using TestWebApplication.Application.Bll;
 using TestWebApplication.Application.Interface;
 using TestWebApplication.Data.Context;
 using TestWebApplication.Domain.Interface;
-using TestWebApplication.Domain.Services;
+using TestWebApplication.Domain.Manager;
 
 namespace TestWebApplication.API
 {
@@ -25,7 +25,7 @@ namespace TestWebApplication.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IUserService, UserService>( );
+            services.AddScoped<IUserManager, UserManager>( );
             services.AddScoped<IUserBll, UserBll>( );
 
             services.AddControllers( );

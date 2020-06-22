@@ -4,14 +4,14 @@ using TestWebApplication.Data.Context;
 using TestWebApplication.Data.Models;
 using TestWebApplication.Domain.Interface;
 
-namespace TestWebApplication.Domain.Services
+namespace TestWebApplication.Domain.Manager
 {
-    public class UserService : IUserService
+    public class UserManager : IUserManager
     {
 
         private readonly AppDbContext _context;
 
-        public UserService(AppDbContext context)
+        public UserManager(AppDbContext context)
         {
             _context = context;
         }

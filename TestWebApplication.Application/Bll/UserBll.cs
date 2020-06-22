@@ -8,10 +8,10 @@ namespace TestWebApplication.Application.Bll
 {
     public class UserBll : IUserBll
     {
-        private readonly IUserService _userService;
+        private readonly IUserManager _userService;
 
 
-        public UserBll(IUserService userService)
+        public UserBll(IUserManager userService)
         {
             _userService = userService;
         }
